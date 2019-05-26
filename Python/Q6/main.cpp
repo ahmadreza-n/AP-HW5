@@ -8,12 +8,14 @@ long double func(long const double &x)
     return (pow(x, 3) / (x + 1)) * cos(pow(x, 2));
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     long double (*pf)(const long double &);
     pf = &func;
+    
+    int n = atoi(argv[1]);
     auto start{std::chrono::high_resolution_clock::now()};
-    CGaussSolver obj(pf, 0, 1, 20);
+    CGaussSolver obj(pf, 0, 1, n);
     obj.exec();
     std::cout << "result: " << obj.getResult() << std::endl;
     auto end{std::chrono::high_resolution_clock::now()};
