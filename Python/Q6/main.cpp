@@ -1,7 +1,7 @@
 #include "gaussSolver.h"
 #include <iostream>
 #include <math.h>
-#include <chrono>
+//#include <chrono>
 
 long double func(long const double &x)
 {
@@ -14,11 +14,11 @@ int main(int argc, char *argv[])
     pf = &func;
     
     int n = atoi(argv[1]);
-    auto start{std::chrono::high_resolution_clock::now()};
+    //auto start{std::chrono::high_resolution_clock::now()};
     CGaussSolver obj(pf, 0, 1, n);
     obj.exec();
-    std::cout << "result: " << obj.getResult() << std::endl;
-    auto end{std::chrono::high_resolution_clock::now()};
-    std::cout << "took: " << std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count() << "ms" << std::endl;
+    //std::cout << "result: " << obj.getResult() << std::endl;
+    //auto end{std::chrono::high_resolution_clock::now()};
+    //std::cout << "took: " << std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count() << "ms" << std::endl;
     return 0;
 }
