@@ -4,7 +4,6 @@ from time import time as epochTime
 import sys
 import subprocess
 import matplotlib.pyplot as plt
-import numpy as np
 
 def func(x):
     return math.pow(x, 3) * math.cos(math.pow(x, 2)) / (x + 1)
@@ -25,7 +24,7 @@ print(f"took {(epochTime() - start) * 1000:.7} ms")
 
 pythonTime = []
 cTime = []
-print("########## part 2 ##########")
+print("########## last part ##########")
 print("degree \t python \t c++")
 inputList = range(20)
 for i in inputList:
@@ -49,4 +48,4 @@ plt.xlabel('degree')
 plt.ylabel('time in ms') 
 plt.legend() 
 plt.show()
-f.savefig("x.pdf")
+f.savefig("result.pdf")
