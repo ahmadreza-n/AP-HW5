@@ -1,71 +1,74 @@
 import os
+import re
 
 
-def getInput():
-    while(True):
-        inputStr = input("Enter your command, type quit or exit to exit: \n")
+def getInput(prog):
+    commandList = []
+    inputMessage = "Enter your command, type quit or exit to exit: \n"
+    while len(commandList) != 3:
+        inputStr = input(inputMessage)
         if(inputStr == 'quit' or inputStr == 'exit'):
-            raise Exception("Good Bye")
-        inputStr = inputStr.split('(')
-        if(len(inputStr) != 2):
-            print("wrong format")
+            return ['quit', None, None]
+        temp = prog.match(inputStr)
+        if temp is None:
+            inputMessage = "wrong format, please try again\n"
         else:
-            command = inputStr[0]
-            temp = inputStr[1].split(',')
-            if(len(temp) != 2):
-                print("wrong format")
-            else:
-                path = temp[1][:-1]
-                if path.startswith(' '):
-                    path = path[1:]
-                name = temp[0]
-                command = command.lower()
-                return [command, path, name]
+            commandList = list(temp.groups())
+
+    if len(commandList[2]) == 0:
+        commandList[2] = os.getcwd()
+
+    return commandList
 
 
 def find(name, path):
     result = []
-    for root, dirs, files in os.walk(path):
+    for root, _, files in os.walk(path):
         if name in files:
             result.append(os.path.join(root, name))
     return result
 
-if __name__ == "__main__":
-    while(True):
+
+pattern = r'(.+)\((.+), *(.*)\)'  # input format
+prog = re.compile(pattern)
+
+while(True):
+    [command, name, path] = getInput(prog)
+    if command == 'quit':
+        break
+
+    if command == 'create_dir':
         try:
-            [command, path, name] = getInput()
-            if(len(path) == 0):
-                path = os.getcwd()
-        except:
-            break
-        if command == 'create_dir':
-            try:
-                os.mkdir(path + '/' + name)
-            except OSError:
-                print(f"Creation of the directory {name} in {path} failed")
-            else:
-                print(f"Successfully created the directory {path}")
-        elif command == 'create_file':
-            try:
-                os.mknod(path + '/' + name)
-            except OSError:
-                print(f"Creation of the file {name} in {path} failed")
-            else:
-                print(f"Successfully created the file {name} in {path}")
-        elif command == 'delete':
-            try:
-                os.remove(path + '/' + name)
-            except OSError:
-                print(f"Deletion of the file {name} in {path} failed")
-            else:
-                print(f"Successfully deleted the file {name} in {path}")
-        elif command == 'find':
-            try:
-                result = find(name, path)
-            except OSError:
-                print(f"Finding of the file {name} failed")
-            else:
-                print(f"Successfully found the file(s) {name}")
-                print(result)
+            os.mkdir(os.path.join(path, name))  # creating new directory
+        except OSError:
+            print(f"Creation of the directory {name} in {path} failed")
         else:
-            print("wrong format")
+            print(f"Successfully created the directory {path}")
+
+    elif command == 'create_file':
+        try:
+            os.mknod(os.path.join(path, name))  # creating new file
+        except OSError:
+            print(f"Creation of the file {name} in {path} failed")
+        else:
+            print(f"Successfully created the file {name} in {path}")
+
+    elif command == 'delete':
+        try:
+            os.remove(os.path.join(path, name))  # removing exsisting file
+        except OSError:
+            print(f"Deletion of the file {name} in {path} failed")
+        else:
+            print(f"Successfully deleted the file {name} in {path}")
+
+    elif command == 'find':
+        try:
+            result = find(name, path)  # finding existing file
+        except OSError:
+            print(f"Finding of the file {name} failed")
+        else:
+            print(f"Successfully found the file(s) {name}")
+            print(result)
+
+    else:
+        print("No such command")

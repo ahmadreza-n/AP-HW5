@@ -1,24 +1,23 @@
 #include "gaussSolver.h"
 #include <iostream>
 #include <math.h>
-//#include <chrono>
+#include <iomanip>
 
-long double func(long const double &x)
+long double aFunction(long const double &x)
 {
-    return (pow(x, 3) / (x + 1)) * cos(pow(x, 2));
+    long double xPrime{0.5*x + 0.5} ;
+    return (pow(xPrime, 3) / (xPrime + 1)) * cos(pow(xPrime, 2));
 }
 
 int main(int argc, char *argv[])
 {
     long double (*pf)(const long double &);
-    pf = &func;
+    pf = &aFunction;
     
     int n = atoi(argv[1]);
-    //auto start{std::chrono::high_resolution_clock::now()};
-    CGaussSolver obj(pf, 0, 1, n);
-    obj.exec();
-    //std::cout << "result: " << obj.getResult() << std::endl;
-    //auto end{std::chrono::high_resolution_clock::now()};
-    //std::cout << "took: " << std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count() << "ms" << std::endl;
+    CGaussSolver aSolver(pf, 0, 1, n);
+    aSolver.exec();
+    std::cout.precision(20);
+    std::cout << "Result of C++ code (n = "<< std::setw(2) << n << "): "<< aSolver.getResult() << std::endl;
     return 0;
 }

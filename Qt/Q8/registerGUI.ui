@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>registerGUI</class>
+ <widget class="QWidget" name="registerGUI">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>450</height>
+    <width>250</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>781</width>
-     <height>361</height>
+     <x>9</x>
+     <y>9</y>
+     <width>232</width>
+     <height>271</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <spacer name="verticalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_14">
       <item>
@@ -54,7 +41,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Name</string>
+         <string>Name:</string>
         </property>
        </widget>
       </item>
@@ -89,14 +76,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QTextEdit" name="nameBox">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="maximumSize">
+       <widget class="QLineEdit" name="nameBox">
+        <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>30</height>
+          <width>180</width>
+          <height>0</height>
          </size>
         </property>
        </widget>
@@ -115,19 +99,6 @@
        </spacer>
       </item>
      </layout>
-    </item>
-    <item>
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -182,11 +153,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QTextEdit" name="phoneBox">
-        <property name="maximumSize">
+       <widget class="QLineEdit" name="phoneBox">
+        <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>30</height>
+          <width>180</width>
+          <height>0</height>
          </size>
         </property>
        </widget>
@@ -205,19 +176,6 @@
        </spacer>
       </item>
      </layout>
-    </item>
-    <item>
-     <spacer name="verticalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -272,11 +230,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QTextEdit" name="usernameBox">
-        <property name="maximumSize">
+       <widget class="QLineEdit" name="usernameBox">
+        <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>30</height>
+          <width>180</width>
+          <height>0</height>
          </size>
         </property>
        </widget>
@@ -295,19 +253,6 @@
        </spacer>
       </item>
      </layout>
-    </item>
-    <item>
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -362,11 +307,11 @@
        </spacer>
       </item>
       <item>
-       <widget class="QTextEdit" name="passwordBox">
-        <property name="maximumSize">
+       <widget class="QLineEdit" name="passwordBox">
+        <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>30</height>
+          <width>180</width>
+          <height>0</height>
          </size>
         </property>
        </widget>
@@ -386,28 +331,15 @@
       </item>
      </layout>
     </item>
-    <item>
-     <spacer name="verticalSpacer_5">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>360</y>
-     <width>781</width>
-     <height>81</height>
+     <x>9</x>
+     <y>285</y>
+     <width>231</width>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">

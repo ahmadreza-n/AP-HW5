@@ -10,5 +10,4 @@ connect.commit()
 connect.execute("""CREATE TABLE users (id integer primary key autoincrement, name text,
 phone integer, username text, password text)""")
 
-connect.execute("""CREATE TABLE locations (id integer primary key autoincrement, user_id
-integer, lat integer, lon integer)""")
+connect.execute("""CREATE TABLE locations (id integer primary key autoincrement, user_id integer, lat integer, lon integer)""")

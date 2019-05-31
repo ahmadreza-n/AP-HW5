@@ -8,4 +8,6 @@ def render(request, htmlFileName, *args, **keywords):
         elif key is 'error':
             print('your error code is:', keywords[key])
 
-render(None, 'test.html', 1, 2, 3, 4, title='testing', error='404')
+
+if __name__ == '__main__':
+    render(None, 'test.html', 1, 2, 3, 4, title='testing', error='404')

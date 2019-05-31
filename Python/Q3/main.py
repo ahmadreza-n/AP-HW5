@@ -6,8 +6,9 @@ A1 = range(10)
 A2 = [i for i in A1 if i in A0]
 # a sorted list containing A0's values
 A3 = sorted(A0[i] for i in A0)
-# a list containing sublists in form of [i, i*i] and i is 0, 1, ..., 9 
+# a list containing sublists in form of [i, i*i] and i is 0, 1, ..., 9
 A4 = [[i, i*i] for i in A1]
+
 
 def printContainer(container):
     if(type(container) is type(range(0))):
@@ -16,4 +17,6 @@ def printContainer(container):
         print(container)
     print('\n')
 
-[printContainer(i) for i in [A0, A1, A2, A3, A4]]
+
+if __name__ == '__main__':
+    [printContainer(container) for container in [A0, A1, A2, A3, A4]]
